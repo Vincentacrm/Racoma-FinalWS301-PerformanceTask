@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration Form</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <section class="form-card">
+      <div class="form-heading">
+        <p class="eyebrow">STUDENT SERVICES</p>
+        <h1>Student Registration</h1>
+        <p class="subtitle">
+          Complete the form below to register your student information.
+        </p>
+      </div>
+
+      <div id="successMessage" class="success-message"
+        role="status" aria-live="polite" hidden>
+        Registration successful! Your information passed validation.
+      </div>
+
+      <form id="registrationForm" novalidate>
+        <div class="form-grid">
+
+          <div class="field">
+            <label for="studentId">Student ID <span>*</span></label>
+            <input id="studentId" name="studentId" type="text"
+              data-required="true" data-label="Student ID"
+              placeholder="e.g., 2026-00123" autocomplete="off">
+            <small class="error-message" id="studentIdError"></small>
+          </div>
+
+          <div class="field">
+            <label for="fullName">Full Name <span>*</span></label>
+            <input id="fullName" name="fullName" type="text"
+              data-required="true" data-label="Full Name"
+              placeholder="Enter your full name" autocomplete="name">
+            <small class="error-message" id="fullNameError"></small>
+          </div>
+
+          <div class="field">
+            <label for="email">Email Address <span>*</span></label>
+            <input id="email" name="email" type="email"
+              data-required="true" data-label="Email Address"
+              placeholder="you@example.com" autocomplete="email">
+            <small class="error-message" id="emailError"></small>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone Number <span>*</span></label>
+            <input id="phone" name="phone" type="tel"
+              data-required="true" data-label="Phone Number"
+              placeholder="09XXXXXXXXX" inputmode="numeric"
+              autocomplete="tel">
+            <small class="hint">Use 11 digits starting with 09.</small>
+            <small class="error-message" id="phoneError"></small>
+          </div>
+
+          <div class="field">
+            <label for="dob">Date of Birth <span>*</span></label>
+            <input id="dob" name="dob" type="date"
+              data-required="true" data-label="Date of Birth">
+            <small class="error-message" id="dobError"></small>
+          </div>
+
+          <fieldset class="field">
+            <legend>Gender <span>*</span></legend>
+            <div class="radio-row">
+              <label class="radio-option">
+                <input type="radio" name="gender" value="Female">
+                Female
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="gender" value="Male">
+                Male
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="gender" value="Prefer not to say">
+                Prefer not to say
+              </label>
+            </div>
+            <small class="error-message" id="genderError"></small>
+          </fieldset>
+
+          <div class="field">
+            <label for="program">Program <span>*</span></label>
+            <select id="program" name="program"
+              data-required="true" data-label="Program">
+              <option value="">Select a program</option>
+              <option value="BS Information Technology">
+                BS Information Technology
+              </option>
+              <option value="BS Computer Science">
+                BS Computer Science
+              </option>
+              <option value="BS Information Systems">
+                BS Information Systems
+              </option>
+              <option value="Other">Other</option>
+            </select>
+            <small class="error-message" id="programError"></small>
+          </div>
+
+          <div class="field">
+            <label for="yearLevel">Year Level <span>*</span></label>
+            <select id="yearLevel" name="yearLevel"
+              data-required="true" data-label="Year Level">
+              <option value="">Select year level</option>
+              <option value="1st Year">1st Year</option>
+              <option value="2nd Year">2nd Year</option>
+              <option value="3rd Year">3rd Year</option>
+              <option value="4th Year">4th Year</option>
+              <option value="5th Year">5th Year</option>
+            </select>
+            <small class="error-message" id="yearLevelError"></small>
+          </div>
+
+          <!-- Password field with an eye icon inside -->
+          <div class="field">
+            <label for="password">Password <span>*</span></label>
+
+            <div class="password-wrapper">
+              <input id="password" name="password" type="password"
+                data-required="true" data-label="Password"
+                placeholder="At least 8 characters"
+                autocomplete="new-password">
+
+              <button type="button" class="toggle-visibility"
+                data-target="password"
+                aria-label="Show password"
+                aria-pressed="false"
+                title="Show password">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+            </div>
+
+            <small class="error-message" id="passwordError"></small>
+          </div>
+
+          <!-- Confirm Password field with its own eye icon -->
+          <div class="field">
+            <label for="confirmPassword">
+              Confirm Password <span>*</span>
+            </label>
+
+            <div class="password-wrapper">
+              <input id="confirmPassword" name="confirmPassword"
+                type="password" data-required="true"
+                data-label="Confirm Password"
+                placeholder="Enter password again"
+                autocomplete="new-password">
+
+              <button type="button" class="toggle-visibility"
+                data-target="confirmPassword"
+                aria-label="Show confirm password"
+                aria-pressed="false"
+                title="Show confirm password">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+            </div>
+
+            <small class="error-message" id="confirmPasswordError"></small>
+          </div>
+
+          <div class="field full-width">
+            <label for="address">Address <span>*</span></label>
+            <textarea id="address" name="address" rows="3"
+              data-required="true" data-label="Address"
+              placeholder="House number, street, barangay, municipality"></textarea>
+            <small class="error-message" id="addressError"></small>
+          </div>
+
+          <div class="field full-width agreement-field">
+            <label class="checkbox-option" for="agreement">
+              <input id="agreement" name="agreement" type="checkbox"
+                data-required="true">
+              <span>
+                I confirm that the information I provided is accurate.
+                <span>*</span>
+              </span>
+            </label>
+            <small class="error-message" id="agreementError"></small>
+          </div>
+
+        </div>
+
+        <div class="button-row">
+          <button class="submit-button" type="submit">
+            Submit Registration
+          </button>
+          <button class="reset-button" type="reset">
+            Reset Form
+          </button>
+        </div>
+
+        <p class="required-note">
+          Fields marked with * are required.
+        </p>
+      </form>
+    </section>
+
+  </main>
+</body>
+</html>
